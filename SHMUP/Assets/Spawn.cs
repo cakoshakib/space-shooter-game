@@ -11,11 +11,21 @@ public class Spawn : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        InvokeRepeating("SpawnEnemy", rate, rate);
+
+            InvokeRepeating("SpawnEnemy", rate, rate);
+  
+       
   
     }
     
-
+    void CheckBoss()
+    {
+        if(PlayerPrefs.GetInt("Score") >= 5000)
+        {
+            CancelInvoke();
+        }
+      
+    }
 
     void SpawnEnemy()
     {
@@ -25,7 +35,7 @@ public class Spawn : MonoBehaviour {
 
     // Update is called once per frame
     void Update()
-    { 
-        
+    {
+        CheckBoss();
     }
 }

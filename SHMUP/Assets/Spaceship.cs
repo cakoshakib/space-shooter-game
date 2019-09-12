@@ -44,7 +44,10 @@ public class Spaceship : MonoBehaviour {
             laser.Play();
         }
         delay++;
-    
+        if(PlayerPrefs.GetInt("Score") >= 9000 )
+        {
+            SetHealth(0);
+        }
     }
 
     void Move(Vector2 direction)
@@ -83,6 +86,16 @@ public class Spaceship : MonoBehaviour {
         delay = 0;
     }
 
+    public void SetHealth(int i)
+    {
+        health = i;
+        if (health == 0)
+        {
+
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject, 0.1f);
+        }
+    }
     public void AddHealth()
     {
         health++;

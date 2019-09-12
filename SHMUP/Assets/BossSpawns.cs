@@ -6,6 +6,7 @@ public class BossSpawns : MonoBehaviour {
 
     public GameObject UFOBoss1, Boss2;
     private bool isCreated = false;
+    public bool bossU = false;
 
 	void Update () {
         if (isCreated == false)
@@ -18,7 +19,8 @@ public class BossSpawns : MonoBehaviour {
             if (PlayerPrefs.GetInt("Score") >= 20000)
             {
                 Instantiate(Boss2, new Vector3(0, 7.33f), Quaternion.identity);
-            }
+
+]            }
         }
 
   
